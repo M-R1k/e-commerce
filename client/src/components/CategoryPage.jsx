@@ -78,18 +78,19 @@ export default function CategoryPage() {
 
   return (
     <>
-      <div className="bg-white dark:bg-dark-mode-purple">
+      <div className="bg-light-purple bg-opacity-20 dark:bg-dark-mode-purple">
         <Header />
-        <ul className="flex flex-wrap space-x-2 p-4 dark:text-gold">
+        <ul className="flex flex-wrap space-x-4 p-4 text-gold font-primary font-bold">
           <li>
             <Link to={`/`}>{t("categoryPage.homepage")}</Link>
           </li>
           <li>/</li>
           {name && <li>{name}</li>}
         </ul>
-        <h1 className="text-gold text-center text-3xl md:text-5xl mb-9 font-primary">
+        <h1 className="text-gold text-center text-3xl md:text-5xl mb-9 font-bold font-primary">
           {name}
         </h1>
+        
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mx-4 md:mx-20 mb-8">
           {currentProducts.length > 0 ? (
             currentProducts.map((elem) => {
@@ -97,16 +98,16 @@ export default function CategoryPage() {
               return (
                 <li
                   key={elem.id}
-                  className="border border-gray-300 p-4 rounded-lg dark:border-gold"
+                  className="border border-gold p-4 rounded-lg shadow-md shadow-gold"
                 >
                   <Link to={`/product/${elem.id}`}>
                     <img
-                      className="w-full h-48 object-cover mb-4"
+                      className="w-full rounded-t-lg h-80 object-cover mb-4"
                       src={elem.images}
                       alt={language === "FR" ? elem.name : elem.nameEn}
                     />
 
-                    <p className="text-center font-primary dark:text-gold">
+                    <p className="text-center font-primary text-2xl font-bold text-dark-purple dark:text-gold">
                       {language === "FR" ? elem.name : elem.nameEn}
                     </p>
                     <div className="flex items-center">
@@ -115,7 +116,7 @@ export default function CategoryPage() {
                         src={stockColorCode}
                         alt={stockText}
                       />
-                      <p className="text-left font-primary dark:text-gold">
+                      <p className="text-left font-primary font-bold text-xl text-dark-purple dark:text-gold">
                         {stockText}
                       </p>
                     </div>

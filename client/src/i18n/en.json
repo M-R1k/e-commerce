@@ -197,5 +197,38 @@
   },
   "novelties": {
     "new": "New arrivals"
+  },
+  "addressPopup": {
+    "addressOption": "Select an address",
+    "addressChoice": "Choose this address",
+    "addressName": "Name",
+    "addressEmail": "Email",
+    "addressPhone": "Phone",
+    "addressCompany": "Company",
+    "addressCountry": "Country",
+    "addressZIP": "ZIP Code",
+    "addressState": "State",
+    "addressCity": "City",
+    "addressStreet": "Street name and house number",
+    "confirm": "Confirm"
+  },
+  "cartPage": {
+    "myCart": "My cart",
+    "shippingMethod": "Shipping Method",
+    "estimatedTime": "Estimated delivery time",
+    "days": "days",
+    "isGift": "It's a gift ?",
+    "productSize": "Size",
+    "productMaterial": "Material",
+    "productStone": "Stone",
+    "productPrice": "Price",
+    "productQuantity": "Quantity",
+    "productDelete": "Delete",
+    "productSave": "Save for later",
+    "order": "Order",
+    "subTotal": "Total",
+    "address": "Address",
+    "notFound": "Address not filled",
+    "free":"Free"
   }
 }

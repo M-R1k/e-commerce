@@ -137,11 +137,11 @@ export default function Admin() {
 
   return (
     <>
-      <div className="dark:bg-dark-mode-purple">
+      <div className="bg-light-purple bg-opacity-30 dark:bg-dark-mode-purple">
         <Header></Header>
         <div className="mr-24	ml-24	">
           <NavBarAdmin></NavBarAdmin>
-          <div className="border border-grey	w-2/4	"></div>
+          <div className="border border-gold	w-3/4	"></div>
           <br></br>
 
           <Organizer />
@@ -163,14 +163,14 @@ export default function Admin() {
               {t("adminPage.code")}
             </Link>
             <button
-              className="rounded-lg bg-light-purple dark:bg-dark-mode-light-purple text-gold p-2.5 mt-2"
-              onClick={() => addPromo()}
+              className="rounded-lg bg-gold dark:bg-dark-mode-light-purple font-primary text-white p-2.5 mt-2"
+              onClick={addPromo}
             >
               {t("adminPage.promotion")}
             </button>
 
             <button
-              className="rounded-lg bg-light-purple dark:bg-dark-mode-light-purple text-gold p-2.5 mt-2"
+              className="rounded-lg bg-gold dark:bg-dark-mode-light-purple font-primary text-white p-2.5 mt-2"
               onClick={() => manageShipping()}
             >
               {t("adminPage.shipping")}
@@ -204,25 +204,33 @@ export default function Admin() {
                     </div>
                     <div style={{ textAlign: "end" }}>
                       <li>
-                        <button onClick={() => editUser(elem.id)}>
+                        <button
+                        className="rounded-lg bg-gold dark:bg-dark-mode-light-purple font-primary text-white p-2.5 mt-2"
+                        onClick={() => editUser(elem.id)}>
                           {t("editProfil.edit")}
                         </button>
                       </li>
                       {!elem.roles.includes("ROLE_ADMIN") ? (
                         <li>
-                          <button onClick={() => setAdmin(elem.id)}>
+                          <button 
+                          className="rounded-lg bg-gold dark:bg-dark-mode-light-purple font-primary text-white p-2.5 mt-2"
+                          onClick={() => setAdmin(elem.id)}>
                             {t("adminPage.Badmin")}
                           </button>
                         </li>
                       ) : (
                         <li>
-                          <button onClick={() => setUser(elem.id)}>
+                          <button 
+                          className="rounded-lg bg-gold dark:bg-dark-mode-light-purple font-primary text-white p-2.5 mt-2"
+                          onClick={() => setUser(elem.id)}>
                             {t("adminPage.Buser")}
                           </button>
                         </li>
                       )}
                       <li>
-                        <button onClick={() => deleteUser(elem.id)}>
+                        <button 
+                        className="rounded-lg bg-gold dark:bg-dark-mode-light-purple font-primary text-white p-2.5 mt-2"
+                        onClick={() => deleteUser(elem.id)}>
                           {t("editProfil.delete")}
                         </button>
                       </li>

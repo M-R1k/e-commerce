@@ -23,7 +23,7 @@ export default function Promotion() {
 
   return (
     <>
-      <h1 className="text-black dark:text-gold text-3xl md:text-5xl font-primary m-8 text-center">
+      <h1 className="text-gold text-3xl md:text-5xl font-bold font-primary m-8 text-center">
         {t("promotion.translated-text")}
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
@@ -34,28 +34,28 @@ export default function Promotion() {
                 <Link to={`/product/${elem.id}`}>
                   <div
                     key={elem.id}
-                    className="flex flex-col justify-between h-full bg-white border border-gold rounded-lg p-5 shadow-lg"
+                    className="flex flex-col justify-between h-full bg-white-purple dark:bg-dark-mode-purple border border-gold rounded-lg p-5 shadow-lg dark:shadow-gold"
                   >
                     <img
                       src={elem.images}
                       alt={elem.name}
-                      className="w-full h-48 object-cover rounded-t-lg"
+                      className="w-full h-80 object-cover rounded-t-lg"
                     />
-                    <h3 className="font-primary text-gold text-2xl mt-4">
-                      {language === "FR" ? elem.name : elem.nameEn}
+              <h3 className="font-primary text-gold font-extrabold text-center p-2 text-3xl mt-4">
+              {language === "FR" ? elem.name : elem.nameEn}
                     </h3>
-                    <p className="font-primary text-black text-lg">
-                      {language === "FR"
-                        ? elem.description
-                        : elem.descriptionEn}
-                    </p>
-                    <p className="font-bold font-primary text-black">
-                      <span className="line-through">${elem.price}</span>{" "}
+                    <p className="font-bold p-2 font-secondary text-3xl text-light-purple text-right dark:text-white">
+                    <span className="line-through">${elem.price}</span>{" "}
                       <span>
                         $
                         {elem.price -
                           (elem.price * elem.promotion.pourcentage) / 100}
                       </span>
+                    </p>
+                    <p className="font-primary text-light-purple dark:text-white text-center p-2 font-bold text-lg">
+                    {language === "FR"
+                        ? elem.description
+                        : elem.descriptionEn}
                     </p>
                   </div>
                 </Link>

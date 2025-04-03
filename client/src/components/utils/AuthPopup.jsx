@@ -16,11 +16,11 @@ const AuthPopup = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-80 z-50">
-      <div className="bg-grey p-6 rounded-lg shadow-lg max-w-md w-full">
+      <div className="bg-white-purple dark:bg-dark-mode-purple p-6 rounded-lg shadow-lg max-w-md w-full">
         <div className="flex flex-col space-y-4">
           <button
             onClick={handleLoginRedirect}
-            className="bg-blue-500 hover:bg-blue-600 text-black font-medium py-2 rounded-lg transition duration-200"
+            className="bg-gold hover:bg-light-purple text-white-purple font-medium p-2 rounded-3xl transition duration-200"
           >
             Se connecter
           </button>
@@ -28,7 +28,7 @@ const AuthPopup = ({ onClose }) => {
         <div className="flex flex-col space-y-4">
           <button
             onClick={handleCartRedirect}
-            className="bg-green-500 hover:bg-green-600 text-black font-medium py-2 rounded-lg transition duration-200"
+            className="bg-light-purple hover:bg-gold text-white-purple font-medium p-2 rounded-3xl transition duration-200"
           >
             Continuer la commande
           </button>

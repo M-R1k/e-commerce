@@ -42,7 +42,8 @@ class CheckoutController extends AbstractController
         $stripe = new StripeClient('sk_test_51NUbU2GrTRGUcbUFRaBZDqHBkr2o7xGKO1TMq1Nsphba1NviiZZqhbHjDt9tRrzU0u7eFc5kJAHDuNY06jvkfGDr00QfCClWJt');
 
         $YOUR_DOMAIN = 'http://localhost:3000';
-
+        $resume_shipping = [$items, $shipping[0], $data[0]["tracking_num"]];
+        
         $checkout_session = $stripe->checkout->sessions->create([
             'ui_mode' => 'embedded',
             'line_items' => $items,
@@ -69,7 +70,7 @@ class CheckoutController extends AbstractController
                 ],
             ],
             'payment_method_types' => ['card', 'paypal'],
-            'return_url' => $YOUR_DOMAIN . '/return?session_id={CHECKOUT_SESSION_ID}',
+            'return_url' => $YOUR_DOMAIN . '/return?session_id={CHECKOUT_SESSION_ID}&data='.urlencode(json_encode($resume_shipping)),
         ]);
 
         return $this->json(['clientSecret' => $checkout_session->client_secret], 200);

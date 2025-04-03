@@ -21,8 +21,16 @@ const cartReducer = (state, action) => {
         return [...state, action.payload];
       }
     case "REMOVE_ITEM":
-      return state.filter((item) => item.id !== action.payload.id);
-
+      if (localStorage.getItem("user")) {
+        return state.filter((item) => item.id !== action.payload.id);
+      } else {
+        const existingItem = state.find(
+          (item) =>
+            item.product.id === action.payload.product.id &&
+            item.size === action.payload.size
+        );
+        return state.filter((item) => item !== existingItem);
+      }
     case "UPDATE_ITEM":
       return state.map((item) =>
         item.id === action.payload.id ? { ...item, ...action.payload } : item

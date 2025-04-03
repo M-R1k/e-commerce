@@ -59,9 +59,9 @@ export default function Carousel() {
         canRender();
     }, [activeImages]);
     return (
-        <div className="space-y-4 flex flex-col items-start justify-center m-24">
+        <div className="space-y-4 flex flex-col items-center justify-center m-24">
             {/* <div className="relative w-full max-w-4xl mx-auto p-4"> */}
-            <h1 className="text-black dark:text-gold text-3xl md:text-5xl font-primary m-8 text-center">
+            <h1 className="text-gold font-bold text-3xl md:text-5xl font-primary m-8 text-center">
                 {t('common.translated-text')}
             </h1>
             <div className="relative items-center w-full overflow-hidden">

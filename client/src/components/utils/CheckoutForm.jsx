@@ -13,10 +13,12 @@ export default function CheckoutForm(props) {
   const [clientSecret, setClientSecret] = useState("");
 
   const params = useLocation();
+  // console.log(params);
   const adress = params.state.adress;
   const shipping_amount = params.state.shipping_amount;
   const shipping_name = params.state.shipping_name;
   const shipping_estimatedDays = params.state.shipping_estimatedDays;
+  const tracking_num = params.state.tracking_num;
 
   // console.log(`adress => ${params.state.adress} | shipping => ${params.state.shipping}`)
   useEffect(() => {
@@ -28,6 +30,7 @@ export default function CheckoutForm(props) {
         shipping_amount: shipping_amount,
         shipping_name: shipping_name,
         shipping_estimatedDays: shipping_estimatedDays,
+        tracking_num: tracking_num,
       };
     });
     setStripeData(newStripeData);
@@ -45,7 +48,6 @@ export default function CheckoutForm(props) {
 
     const data = await res.json();
 
-    // console.log(data);
     if (data.clientSecret) {
       setClientSecret(data.clientSecret);
     }

@@ -29,6 +29,7 @@ export default function Content() {
   const [shippingChoice, setShippingChoice] = useState([]);
   const [shippingOption, setShippingOption] = useState(0);
   const [shippingOptionValid, setShippingOptionValid] = useState(false);
+  const [tracking_num, setTracking_num] = useState("");
 
   const [isWaiting, setIsWaiting] = useState(true);
   const [cartState, setCartState] = useState(0);
@@ -137,11 +138,9 @@ export default function Content() {
       });
 
       if (response.ok) {
-        console.log("Product deleted successfully from server");
         dispatch({ type: "REMOVE_ITEM", payload: item });
       }
     } else {
-      console.log("User not logged in, removing from local cart");
       dispatch({ type: "REMOVE_ITEM", payload: item });
     }
   };
@@ -168,16 +167,6 @@ export default function Content() {
       if (data.sucess) {
         dispatch({ type: "REMOVE_ITEM", payload: elem });
       }
-    }
-  };
-
-  const handlePromoApply = async (code) => {
-    const response = await fetch(`${localhost}/api/coupon/${code}`);
-    if (response.ok) {
-      const data = await response.json();
-      setReduction(data.promo[0].rate);
-    } else {
-      setReduction(null);
     }
   };
 
@@ -218,6 +207,7 @@ export default function Content() {
           shipping_amount: shippingOption.amount,
           shipping_name: shippingOption.attributes[0],
           shipping_estimatedDays: shippingOption.estimatedDays,
+          tracking_num: tracking_num,
         },
       });
     } else if (cartState === 1) {
@@ -270,32 +260,9 @@ export default function Content() {
     });
 
     if (trans) {
-      if (localStorage.getItem("user")) {
-        const formData = {
-          user: localStorage.getItem("user"),
-          number: trans.objectId,
-          status: "PRE_TRANSIT",
-        };
-
-        await fetch(`${localhost}/api/tracking`, {
-          method: "POST",
-          headers: { "Content-type": "application/json" },
-          body: JSON.stringify({ formData }),
-        });
-      } else {
-        const formData = {
-          addressTo: addressTo.email,
-          number: trans.objectId,
-          status: "PRE_TRANSIT",
-        };
-
-        await fetch(`${localhost}/api/trackingNotLogin`, {
-          method: "POST",
-          headers: { "Content-type": "application/json" },
-          body: JSON.stringify({ formData }),
-        });
-      }
+      setTracking_num(trans.objectId);
     }
+
     setCartState(2);
   };
 
@@ -338,8 +305,7 @@ export default function Content() {
           />
         ))}
       </div>
-      <div className="w-2/5  mr-8 flex flex-col justify-start">
-        <Promo onApply={handlePromoApply} />
+      <div className="w-2/5 mr-8 flex flex-col justify-start">
         <OrderSummary
           subTotal={subTotal}
           reduction={reduction}

@@ -15,17 +15,17 @@ const Autocomplete = ({ autocompleteData, activeSuggestion, onClick }) => {
   let suggestionsListComponent;
   if (filteredSuggestions && filteredSuggestions.length > 0) {
     suggestionsListComponent = (
-      <ul className="absolute border border-gray-600 border-t-0 list-none mt-12 max-h-36 overflow-y-auto pl-0 w-full bg-grey shadow-lg md:w-72">
+      <ul className="absolute border border-gold border-t-0 list-none mt-16 m-2 max-h-80 overflow-y-auto pl-0 w-full bg-grey rounded-md md:w-72">
         {filteredSuggestions.map((suggestion, index) => {
-          let className = "p-2 flex items-center ";
+          let className = "p-4 flex items-center ";
           if (index === activeSuggestionIndex) {
             className +=
-              "bg-light-purple hover:text-black hover:cursor-pointer hover:font-bold";
+              "bg-light-purple bg-opacity-50 dark:bg-dark-mode-purple hover:text-black hover:cursor-pointer hover:font-bold"
           }
 
           return (
             <li
-              className={`${className} border-b border-gray-600:last:border-0`}
+              className={`${className} border-b-2 border-gold last:border-gold`}
               key={index}
               onClick={onClick}
             >
@@ -38,7 +38,7 @@ const Autocomplete = ({ autocompleteData, activeSuggestion, onClick }) => {
                 <div className="font-bold text-gold font-primary text-lg">
                   {language === "FR" ? suggestion.name : suggestion.nameEn}
                 </div>
-                <div className="text-gray-600 font-bold font-primary">
+                <div className="text-gold font-bold font-primary">
                   ${suggestion.price}
                 </div>
               </div>

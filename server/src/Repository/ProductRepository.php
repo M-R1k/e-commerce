@@ -51,4 +51,14 @@ class ProductRepository extends ServiceEntityRepository
            ->getResult()
        ;
    }
+
+//    public function getName(): array
+//    {
+//         return $this->createQueryBuilder('s')
+//             ->andWhere('s.name = :val')
+//             ->setParameter('val', $value)
+//             ->getQuery()
+//             ->getOneOrNullResult()
+//         ;
+//    }
 }

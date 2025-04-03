@@ -1,9 +1,10 @@
 import localhost from "../config";
+import { Link } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { LanguageContext } from "../LanguageContext";
 import Autocomplete from "./Autocomplete";
-import { useNavigate } from "react-router-dom";
 
 export default function Search() {
   const [product, setProduct] = useState([]);
@@ -154,16 +155,17 @@ export default function Search() {
         Error: {error.message}
       </div>
     );
+    
   return (
-    <div className="p-5 bg-gray-100 rounded-lg shadow-md">
+    <div className="p-2 m-2 rounded-lg shadow-md">
       <form
         onSubmit={handleSearch}
         className="flex flex-col md:flex-row items-center justify-center gap-2 mb-5"
       >
-        <div className="flex p-3 w-full md:w-auto  bg-white dark:bg-dark-mode-purple">
+        <div className="flex p-3 w-full md:w-auto rounded-md">
           <input
             type="text"
-            className="w-full md:w-72 p-2 border border-gold rounded-md font-primary bg-white dark:bg-dark-mode-light-purple dark:placeholder-gold"
+            className="w-full md:w-72 p-2 m-2 border-2 border-gold text-gold rounded-lg font-primary font-bold bg-white dark:bg-dark-mode-purple"
             placeholder={t("search.searchBar")}
             onChange={onChange}
             onKeyDown={onKeyDown}
@@ -176,14 +178,14 @@ export default function Search() {
           />
           <button
             type="submit"
-            className="p-3 md:px-4 bg-light-purple border border-black text-black rounded-md hover:bg-gold transition duration-300 dark:bg-gold"
+            className="p-2 m-2 md:px-4 bg-gold text-white font-bold text-xl rounded-md hover:bg-light-purple transition duration-300 font-primary"
           >
             {t("search.button")}
           </button>
           {isSearching && (
             <div className="text-center flex font-primary py-4">
               <svg
-                className="animate-spin h-5 w-5 mr-3 text-dark-purple"
+                className="animate-spin h-5 w-5 mr-3 text-dark-purple dark:text-gold"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -216,14 +218,14 @@ export default function Search() {
         </div>
         <select
           value={categoryName}
-          className="w-full md:w-auto p-2 font-primary border border-gold rounded-md  dark:bg-dark-mode-light-purple dark:text-gold"
+          className="w-full md:w-auto p-2 m-2 font-primary text-lg font-bold border-2 border-gold rounded-md dark:bg-dark-mode-purple text-gold"
           onChange={(e) => setCategoryName(e.target.value)}
         >
           <option
             value={
               language === "FR" ? "Toutes les catégories" : "All categories"
             }
-            className="text-gold font-primary bg-light-purple bg-opacity-20 hover:bg-light-purple dark:bg-gold dark:text-white dark:hover-bg-dark-mode-light-purple"
+            className="text-gold font-primary font-bold text-lg bg-light-purple bg-opacity-20 hover:bg-light-purple dark:hover:bg-dark-mode-light-purple"
           >
             {t("search.select")}
           </option>
@@ -233,7 +235,7 @@ export default function Search() {
               <option
                 key={elem.id}
                 value={language === "FR" ? elem.name : elem.nameEn}
-                className="text-gold font-primary"
+                className="text-gold font-primary font-bold text-lg bg-white-purple dark:bg-dark-mode-purple hover: rounded-md border-2 border-gold"
               >
                 {language === "FR" ? elem.name : elem.nameEn}
               </option>
@@ -245,28 +247,31 @@ export default function Search() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
         {searchResults.length > 0 &&
           searchResults.map((result) => (
+            <Link to={`/product/${result.id}`}>
             <div
               key={result.id}
-              className="flex flex-col justify-between h-full bg-white border border-gold rounded-lg p-5 shadow-lg"
+              className="flex flex-col justify-between h-full bg-white-purple dark:bg-dark-mode-purple border border-gold rounded-lg p-5 shadow-lg shadow-gold"
             >
               <img
                 src={result.images}
                 alt={result.name}
-                className="w-full h-48 object-cover rounded-t-lg"
+                className="w-full h-80 object-cover rounded-t-lg"
               />
-              <h3 className="font-primary text-gold text-2xl mt-4">
+              <h3 className="font-primary text-gold font-extrabold text-center p-2 text-3xl mt-4">
                 {language === "FR" ? result.name : result.nameEn}
               </h3>
-              <p className="font-primary text-black text-lg">
-                {language === "FR" ? result.description : result.descriptionEn}
-              </p>
-              <p className="font-bold font-primary text-black">
+              <p className="font-bold p-2 font-secondary text-3xl text-light-purple text-right dark:text-white">
                 ${result.price}
               </p>
-              <button className="mt-4 w-full bg-light-purple text-black border border-black py-2 rounded-lg hover:bg-gold transition duration-300">
+              <p className="font-primary text-light-purple dark:text-white text-center p-2 font-bold text-lg">
+                {language === "FR" ? result.description : result.descriptionEn}
+              </p>
+              <button
+              className="mt-4 p-4 w-full font-primary font-bold rounded-3xl bg-gold text-xl text-white border border-gold py-2 hover:bg-light-purple transition duration-300 ">
                 {t("search.cart")}
               </button>
             </div>
+          </Link>
           ))}
       </div>
     </div>

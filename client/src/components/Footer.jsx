@@ -30,22 +30,22 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="bg-purple bg-opacity-20 p-8 border-t border-gray-300">
+      <footer className="bg-white-purple mt-8 dark:bg-dark-mode-purple p-8 border-2 dark:border-gold">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row items-start justify-between">
             {/* Logo & Informations */}
             <div className="flex-1 mb-6 md:mb-0 md:w-1/4">
-              <h2 className="text-gold text-4xl font-primary mb-4">{t("footer.title")}</h2>
-              <p className="text-gold mb-4 font-primary">{t("footer.adress")}</p>
-              <p className="text-gold mb-4 font-primary">Email : gamaza@gamaza.com</p>
+              <h2 className="text-dark-mode-light-purple dark:text-gold p-4 font-bold text-4xl font-primary mb-4">{t("footer.title")}</h2>
+              <p className="text-dark-mode-light-purple dark:text-gold p-4 font-bold mb-4 font-primary">{t("footer.adress")}</p>
+              <p className="text-dark-mode-light-purple dark:text-gold p-4 font-bold mb-4 font-primary">Email : gamaza@gamaza.com</p>
               <div className="flex space-x-4 mb-6">
-                <a href="https://facebook.com" className="text-white hover:text-gray-400">
+                <a href="https://facebook.com" className="text-gold hover:text-gray-400">
                   <FaFacebook size={24} color="#BF9553" />
                 </a>
-                <a href="https://twitter.com" className="text-white hover:text-gray-400">
+                <a href="https://twitter.com" className="text-gold hover:text-gray-400">
                   <FaTwitter size={24} color="#BF9553" />
                 </a>
-                <a href="https://instagram.com" className="text-white hover:text-gray-400">
+                <a href="https://instagram.com" className="text-gold hover:text-gray-400">
                   <FaInstagram size={24} color="#BF9553" />
                 </a>
               </div>
@@ -54,7 +54,7 @@ export default function Footer() {
             {/* Menu Burger Button */}
             <div className="md:hidden flex items-center mb-6">
               <button
-                className="text-gold text-2xl"
+                className="text-dark-mode-light-purple dark:text-gold p-4 font-bold text-2xl"
                 onClick={() => setMenuOpen(!isMenuOpen)}
               >
                 ☰
@@ -66,8 +66,8 @@ export default function Footer() {
               <div className="flex space-x-8">
                 {/* Service Client */}
                 <div>
-                  <h3 className="text-gold text-2xl font-primary mb-4">Service Client</h3>
-                  <ul className="text-greyy">
+                  <h3 className="text-dark-mode-light-purple text-2xl font-primary mb-4 font-bold dark:text-gold p-4">Service Client</h3>
+                  <ul className="text-dark-mode-purple dark:text-white font-primary p-4">
                     <li><a href="#" onClick={(e) => handleModalOpen(e, "contact")} className="hover:underline">Contactez-nous</a></li>
                     <li><a href="#" onClick={(e) => handleModalOpen(e, "retours")} className="hover:underline">Retours et remboursement</a></li>
                     <li><a href="#" onClick={(e) => handleModalOpen(e, "suivi")} className="hover:underline">Suivi de commande</a></li>
@@ -76,8 +76,8 @@ export default function Footer() {
 
                 {/* Politiques Légales */}
                 <div>
-                  <h3 className="text-gold text-2xl font-primary mb-4">Politiques Légales</h3>
-                  <ul className="text-greyy">
+                  <h3 className="text-dark-mode-light-purple text-2xl font-primary mb-4 font-bold dark:text-gold p-4">Politiques Légales</h3>
+                  <ul className="text-dark-mode-purple dark:text-white font-primary p-4">
                     <li><a href="#" onClick={(e) => handleModalOpen(e, "mentions")} className="hover:underline">Mentions Légales</a></li>
                     <li><a href="#" onClick={(e) => handleModalOpen(e, "confidentialite")} className="hover:underline">Politique de Confidentialité</a></li>
                     <li><a href="#" onClick={(e) => handleModalOpen(e, "protection")} className="hover:underline">Protection des Données</a></li>
@@ -87,8 +87,8 @@ export default function Footer() {
 
                 {/* À Propos */}
                 <div>
-                  <h3 className="text-gold text-2xl font-primary mb-4">À Propos</h3>
-                  <ul className="text-greyy">
+                  <h3 className="text-dark-mode-light-purple  text-2xl font-primary mb-4 font-bold dark:text-gold p-4">À Propos</h3>
+                  <ul className="text-dark-mode-purple dark:text-white font-primary p-4">
                     <li><a href="#" onClick={(e) => handleModalOpen(e, "map")} className="hover:underline">Trouver une Boutique</a></li>
                     <li><a href="#" onClick={(e) => handleModalOpen(e, "histoire")} className="hover:underline">Notre Histoire</a></li>
                   </ul>
@@ -96,8 +96,8 @@ export default function Footer() {
 
                 {/* Modes de Paiements */}
                 <div>
-                  <h3 className="text-gold text-2xl font-primary mb-4">Modes de Paiement</h3>
-                  <ul className="text-greyy">
+                  <h3 className="text-dark-mode-light-purple text-2xl font-primary mb-4 font-bold dark:text-gold p-4">Modes de Paiement</h3>
+                  <ul className="text-dark-mode-purple dark:text-white font-primary p-4">
                     <li><a href="#" onClick={(e) => handleModalOpen(e, "paiement")} className="hover:underline">Cartes de Crédit</a></li>
                     <li><a href="#" onClick={(e) => handleModalOpen(e, "paiement")} className="hover:underline">PayPal</a></li>
                   </ul>
@@ -105,8 +105,8 @@ export default function Footer() {
 
                 {/* Modes de Livraisons */}
                 <div>
-                  <h3 className="text-gold text-2xl font-primary mb-4">Modes de Livraison</h3>
-                  <ul className="text-greyy">
+                  <h3 className="text-dark-mode-light-purple text-2xl font-primary mb-4 font-bold dark:text-gold p-4">Modes de Livraison</h3>
+                  <ul className="text-dark-mode-purple dark:text-white font-primary p-4">
                     <li><a href="#" onClick={(e) => handleModalOpen(e, "livraison")} className="hover:underline">Livraison Standard</a></li>
                     <li><a href="#" onClick={(e) => handleModalOpen(e, "livraison")} className="hover:underline">Livraison Express</a></li>
                     <li><a href="#" onClick={(e) => handleModalOpen(e, "livraison")} className="hover:underline">Click & Collect</a></li>

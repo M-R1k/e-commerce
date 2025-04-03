@@ -64,12 +64,12 @@ export default function ReviewForm(data) {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-start items-start">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col justify-center items-center"
+        className="flex flex-col justify-start items-start"
       >
-        <h1 className="font-bold text-3xl m-6 font-primary ">
+        <h1 className="font-bold text-3xl m-6 text-dark-purple dark:text-gold font-primary ">
           {t("reviewPage.title")}
         </h1>
         <div className="flex dark:text-gold m-4">
@@ -88,7 +88,7 @@ export default function ReviewForm(data) {
               >
                 <path
                   d="M7.62951 40L10.911 25.2067L0 15.261L14.3725 13.9524L20.0013 0L25.6302 13.9496L40 15.2582L29.089 25.204L32.3731 39.9972L20.0013 32.1453L7.62951 40Z"
-                  fill="#BF9553"
+                  fill="#ffc677"
                 />
               </svg>
             ) : (
@@ -105,7 +105,7 @@ export default function ReviewForm(data) {
               >
                 <path
                   d="M11.6652 34.1584L20.0013 28.8682L28.3374 34.228L26.1542 24.2044L33.4979 17.5219L23.8386 16.617L20.0013 7.15022L16.1641 16.5474L6.5048 17.4523L13.8485 24.2044L11.6652 34.1584ZM7.62951 40L10.911 25.2067L0 15.261L14.3725 13.9524L20.0013 0L25.6302 13.9496L40 15.2582L29.089 25.204L32.3731 39.9972L20.0013 32.1453L7.62951 40Z"
-                  fill="#BF9553"
+                  fill="#ffc677"
                 />
               </svg>
             )
@@ -113,19 +113,19 @@ export default function ReviewForm(data) {
         </div>
         {canPost
           ? selectedStar > 0 && (
-              <>
+              <div className="flex flex-col ">
                 <textarea
-                  className="border border-solid border-slate-500 w-96 p-4 rounded-xl mb-4 dark:bg-dark-mode-light-purple dark:text-gold dark:border-gold"
+                  className="border font-primary border-solid border-gold w-96 p-4 rounded-xl mb-4 dark:bg-dark-mode-purple dark:text-gold dark:border-gold"
                   onChange={(e) => setReview(e.target.value)}
                 ></textarea>
-                <button className="dark:text-gold">
+                <button className="text-white rounded-3xl p-2 bg-gold hover:bg-light-purple duration-300 ease-in-out">
                   {t("reviewPage.button")}
                 </button>
-              </>
+              </div>
             )
           : error}
       </form>
-      <div className="border border-gray-300"></div>
+      <div className="border border-gold"></div>
       <Review data={{ reviews: reviews, id: id }} />
     </div>
   );

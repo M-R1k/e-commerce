@@ -45,7 +45,7 @@ const SetSubTotal = () => {
   }
 
   return (
-    <div className="fixed top-12 right-0 mt-2 p-4 bg-white dark:bg-dark-mode-light-purple dark:text-gold rounded-lg shadow-lg sm:w-72 border border-gray-200 z-50 animate-fadeIn">
+    <div className="fixed top-16 right-4 mt-2 p-4 bg-white dark:bg-dark-mode-light-purple dark:text-gold rounded-lg shadow-lg sm:w-72 border border-gray-200 z-50 animate-fadeIn">
       <div className="text-lg font-semibold mb-4 font-primary">{t("popup.basket")}</div>
       <div className="mb-2 font-primary">{t("popup.articles")}&nbsp;{nbrArticle}</div>
       <div className="mb-4 font-primary">{t("popup.subPrice")}&nbsp;{subTotal}€</div>

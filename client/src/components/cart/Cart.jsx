@@ -8,6 +8,7 @@ import { useCart } from "../../CartContext";
 export default function Cart() {
   const { state: cart, dispatch } = useCart([]);
   const [nbrArticle, setNbrArticle] = useState(0);
+  const { t } = useTranslation();
 
   const SetNbrArticle = () => {
     let nbr = 0;
@@ -22,19 +23,19 @@ useEffect(() => {
   return (
     <>
       <Header />
-      <div className="mb-24">
-        <div className="m-16">
+      <div className="p-2 bg-light-purple bg-opacity-30 dark:bg-dark-mode-purple">
+        <div className="m-8">
           {nbrArticle >= 0 && nbrArticle !== 1 && (
-            <h1 className="font-primary text-3xl text-gold mr-4">
-              {`My Cart (` + nbrArticle + ` articles)`}
+            <h1 className="font-primary font-bold text-3xl text-gold mr-4">
+              {t("cartPage.myCart")} {` (` + nbrArticle + ` articles)`}
             </h1>
           )}
           {nbrArticle === 1 && (
-            <h1 className="font-primary text-3xl text-gold mr-4">
-              {`My Cart (` + nbrArticle + ` article)`}
-            </h1>
+            <h1 className="font-primary font-bold text-4xl text-gold mr-4">
+              {t("cartPage.myCart")} {` (` + nbrArticle + ` articles)`}
+              </h1>
           )}
-          <div className="border border-grey w-2/4 mt-4" />
+          <div className="border border-gold w-2/4" /> 
         </div>
         <div><Content /></div>
       </div>

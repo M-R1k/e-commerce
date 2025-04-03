@@ -1,10 +1,10 @@
 {
-  "common": { "translated-text": "Tendance du mois" },
-  "promotion": { "translated-text": "Promotion du mois" },
+  "common": { "translated-text": "Tendances du mois" },
+  "promotion": { "translated-text": "Promotions du mois" },
   "specProduct": {
     "error": "Aucun produit trouvé",
     "homepage": "Accueil",
-    "category": "Categorie:",
+    "category": "Catégorie:",
     "material": "Matériel:",
     "stone": "Pierre:",
     "color": "Couleur:",
@@ -29,7 +29,7 @@
     "cart": "Panier",
     "search": "Barre de recherche",
     "languages": "Langues",
-    "lightmode": "Mode claire",
+    "lightmode": "Mode clair",
     "darkmode": "Mode sombre"
   },
   "footer": {
@@ -67,13 +67,13 @@
     "buttonShip": "Envoyer"
   },
   "editProfil": {
-    "title": "Modifier son profile",
+    "title": "Modifier son profil",
     "firstname": "Prénom",
     "lastname": "Nom",
     "email": "Email ",
     "password": "Mot de passe ",
     "adress": "Adresse ",
-    "region": "Region",
+    "region": "Région",
     "zip": "Code Postal ",
     "city": "Ville ",
     "country": "Pays ",
@@ -84,9 +84,9 @@
   "adminPage": {
     "error": "Pas de données",
     "product": "Ajouter un produit",
-    "category": "Ajouter une categorie",
+    "category": "Ajouter une catégorie",
     "user": "Ajouter un utilisateur",
-    "code": "Créer un coupon de reduction",
+    "code": "Créer un coupon de réduction",
     "manageUser": "Gestion des utilisateurs :",
     "FullName": "Nom complet :",
     "Badmin": "Transformer en administrateur",
@@ -96,7 +96,7 @@
     "size": "Taille :",
     "color": "Couleur :",
     "price": "Prix :",
-    "manageCategory": "Gestion des categories :",
+    "manageCategory": "Gestion des catégories :",
     "promotion": "Promotion",
     "shipping": "Expéditions"
   },
@@ -142,7 +142,7 @@
     "button": "Modifier le produit"
   },
   "editUser": {
-    "title": "Modifier les information d'un utilisateur"
+    "title": "Modifier les informations d'un utilisateur"
   },
 
   "popup": {
@@ -185,7 +185,7 @@
     "title": "Évaluez ce produit",
     "button": "Envoyer",
     "filter": "Filtrer les avis",
-    "stars": "étoiles",
+    "stars": "Etoiles",
     "date": "Filter par date",
     "desc": "Filter par les avis les plus récents",
     "asc": "Filter par les avis les plus ancien"
@@ -197,5 +197,38 @@
   },
   "novelties": {
     "new": "Nouveautés"
+  },
+  "addressPopup": {
+    "addressOption": "Sélectionner une adresse",
+    "addressChoice": "Choisir cette adresse",
+    "addressName": "Nom",
+    "addressEmail": "Mail",
+    "addressPhone": "Téléphone",
+    "addressCompany": "Société",
+    "addressCountry": "Pays",
+    "addressZIP": "Code Postal",
+    "addressState": "Province",
+    "addressCity": "Ville",
+    "addressStreet": "Nom et numéro de voie",
+    "confirm": "Confirmer"
+  },
+  "cartPage": {
+    "myCart": "Mon panier",
+    "shippingMethod": "Mode de livraison",
+    "estimatedTime": "Délai de livraison estimé",
+    "days": "jours",
+    "isGift": "C'est un cadeau ?",
+    "productSize": "Taille",
+    "productMaterial": "Matériau",
+    "productStone": "Pierre",
+    "productPrice": "Prix",
+    "productQuantity": "Quantité",
+    "productDelete": "Supprimer",
+    "productSave": "Mettre de coté",
+    "order": "Commande",
+    "subTotal": "Total",
+    "address": "Adresse",
+    "notFound": "Adresse non renseignée",
+    "free":"Offert"
   }
 }

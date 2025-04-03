@@ -102,11 +102,11 @@ export default function Header() {
       icon: personCircleOutline,
       path: "/admin",
     },
-    {
-      name: t("header.searchBar"),
-      icon: searchOutline,
-      action: toggleSearchBar,
-    },
+    // {
+    //   name: t("header.searchBar"),
+    //   icon: searchOutline,
+    //   action: toggleSearchBar,
+    // },
     {
       name: t("header.cart"),
       icon: cartOutline,
@@ -156,8 +156,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="relative bottom-0 md:top-0 w-full bg-light-purple dark:bg-dark-purple px-6 rounded-t-xl md:rounded-b-none mb-6">
-        <div className="flex flex-col justify-center items-center md:flex-row md:justify-center md:px-10 mb-6">
+      <header className="relative bottom-0 md:top-0 w-full bg-white-purple dark:bg-dark-mode-purple rounded-t-xl md:rounded-b-none shadow-lg shadow-gold p-2 ">
+        <div className="flex flex-row justify-center items-center md:px-10 mb-2">
           <Link to={`/`}>
             <img
               src={lotus}
@@ -165,17 +165,18 @@ export default function Header() {
               alt="Logo de G.A.M.A.Z.A. Co"
             />
           </Link>
-          <h1 className="text-gold text-center font-primary font-extrabold text-xl md:text-3xl lg:text-4xl xl:text-5xl ml-2">
+          <h1 className="text-gold text-left font-secondary font-bold text-xl md:text-3xl lg:text-4xl xl:text-5xl ml-2">
             G.A.M.A.Z.A. Co
           </h1>
         </div>
-        <div className="bg-white dark:bg-light-purple max-w-fit mx-auto flex justify-center px-6 rounded-t-xl max-h-[4.4rem]">
+
+        {/* Navbar  */}
+        <div className="bg-light-purple bg-opacity-50 dark:bg-light-purple max-w-fit mx-auto flex justify-center px-6 rounded-t-xl max-h-[8.4rem]">
           <ul className="flex relative items-center">
             {Menus[active] && (
               <span
                 className={`bg-dark-purple dark:bg-dark-mode-light-purple duration-500
-                  border-4 border-light-purple dark:border-dark-purple
-                  h-16 w-16 absolute -top-5 left-[-1.2rem] transform transition-transform rounded-full ${AnimationNav(
+                  h-16 w-16 absolute -top-5 left-[-1.2rem] transform transition-transform rounded-full  border-4 dark:border-dark-mode-purple border-white-purple ${AnimationNav(
                     active
                   )}`}
               >
@@ -206,9 +207,9 @@ export default function Header() {
                   }
                 >
                   <span
-                    className={`text-xl md:text-2xl cursor-pointer duration-500 font-primary ${
+                    className={`text-2xl cursor-pointer duration-500 font-bold font-primary ${
                       i === active &&
-                      "mt-[-2.5rem] text-gold font-primary font-extrabold"
+                      "mt-[-2.5rem] text-gold dark:text-white"
                     }`}
                   >
                     {menu.hasBadge ? (
@@ -222,7 +223,7 @@ export default function Header() {
                   </span>
 
                   <span
-                    className={`text-gold font-primary font-extrabold items-center justify-center ${
+                    className={`text-gold dark:text-white text-lg font-primary font-extrabold items-center text-center justify-center ${
                       active === i
                         ? "translate-y-4 duration-700 opacity-100"
                         : "opacity-0 translate-y-10"
@@ -254,10 +255,10 @@ export default function Header() {
             ))}
           </ul>
         </div>
-        <div className="flex justify-center items-center">
+      <div className="flex flex-col justify-end -mt-[7.8rem]">
           <Switch />
           <Lang />
-          <Search />
+          {/* <Search /> */}
         </div>
       </header>
       {showAuthPopup && !email && (
